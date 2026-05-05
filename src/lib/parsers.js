@@ -47,7 +47,7 @@ async function parseMidi(file) {
   const sections = buildSections(totalBeats, beatsPerBar)
 
   return {
-    title: (track && track.name) || stripExtension(file.name),
+    title: stripExtension(file.name) || (track && track.name) || 'Untitled',
     subtitle: 'MIDI',
     key: 'C major',
     tonic: 'C',

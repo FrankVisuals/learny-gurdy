@@ -8,8 +8,8 @@ const LIBRARY_URLS = import.meta.glob('../assets/library/*', {
   eager: true,
 })
 
-function filenameFromUrl(url) {
-  return decodeURIComponent(url.split('/').pop().split('?')[0])
+function filenameFromPath(path) {
+  return decodeURIComponent(path.split('/').pop().split('?')[0])
 }
 
 let cache = null
@@ -18,8 +18,8 @@ export async function loadBuiltinSongs() {
   if (cache) return cache
 
   const results = await Promise.all(
-    Object.values(LIBRARY_URLS).map(async (url) => {
-      const filename = filenameFromUrl(url)
+    Object.entries(LIBRARY_URLS).map(async ([path, url]) => {
+      const filename = filenameFromPath(path)
       try {
         const res = await fetch(url)
         if (!res.ok) throw new Error(`HTTP ${res.status}`)

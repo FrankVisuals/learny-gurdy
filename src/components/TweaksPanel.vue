@@ -110,4 +110,18 @@ const open = ref(false)
   border: 2px solid transparent;
   background-clip: content-box;
 }
+
+@media (max-width: 720px) {
+  .twk-panel {
+    right: 8px;
+    left: 8px;
+    bottom: 8px;
+    width: auto;
+    max-height: 70vh;
+  }
+  .twk-fab {
+    right: 12px;
+    bottom: 12px;
+  }
+}
 </style>

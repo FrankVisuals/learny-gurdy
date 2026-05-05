@@ -444,6 +444,9 @@ const formatLabel = computed(() => {
   padding: 12px 28px 32px;
   box-sizing: border-box;
 }
+@media (max-width: 720px) {
+  .page { padding: 10px 12px 80px; }
+}
 .back-row {
   margin-bottom: 8px;
 }
@@ -496,6 +499,13 @@ const formatLabel = computed(() => {
 }
 .main-grid.with-crank {
   grid-template-columns: 1fr 160px;
+}
+@media (max-width: 720px) {
+  .main-grid.with-crank { grid-template-columns: 1fr; }
+  .crank-panel { padding: 12px 8px; }
+  .gap-16 { height: 12px; }
+  .so-title { font-size: 18px; }
+  .so-banner, .so-empty { font-size: 12px; padding: 10px 12px; }
 }
 .main-col {
   display: flex;

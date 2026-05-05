@@ -95,12 +95,16 @@ const tonics = ['G', 'A', 'B', 'C', 'D', 'E', 'F']
   display: flex;
   align-items: center;
   gap: 16px;
+  flex-wrap: wrap;
 }
 .top-id {
   display: flex;
   align-items: center;
   gap: 10px;
+  min-width: 0;
+  flex: 1 1 auto;
 }
+.top-id > div { min-width: 0; }
 .top-logo {
   width: 36px;
   height: 36px;
@@ -123,6 +127,9 @@ const tonics = ['G', 'A', 'B', 'C', 'D', 'E', 'F']
   font-weight: 700;
   letter-spacing: -0.01em;
   line-height: 1.1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 .top-subtitle {
   font-size: 12px;
@@ -206,5 +213,18 @@ const tonics = ['G', 'A', 'B', 'C', 'D', 'E', 'F']
 }
 .top-back-label {
   line-height: 1;
+}
+
+@media (max-width: 720px) {
+  .top { gap: 8px; }
+  .top-spacer { flex-basis: 100%; height: 0; }
+  .top-eyebrow { display: none; }
+  .top-subtitle { display: none; }
+  .top-back-label { display: none; }
+  .top-back { padding: 0 10px; }
+  .top-logo { width: 30px; height: 30px; border-radius: 8px; font-size: 13px; }
+  .top-title { font-size: 15px; }
+  .top-tonic { padding: 4px 4px 4px 10px; }
+  .top-tonic-label { display: none; }
 }
 </style>

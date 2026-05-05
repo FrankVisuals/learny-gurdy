@@ -8,6 +8,7 @@ import { loadBuiltinSongs } from './lib/builtinLibrary.js'
 import Library from './components/Library.vue'
 import Player from './components/Player.vue'
 
+const isSmallScreen = typeof window !== 'undefined' && window.innerWidth <= 720
 const tweaks = usePersistentState('lg.tweaks.v3', {
   palette: 'paper',
   showStaff: true,
@@ -21,7 +22,7 @@ const tweaks = usePersistentState('lg.tweaks.v3', {
   tempoPct: 100,
   metronome: false,
   loopEnabled: false,
-  windowBeats: 8,
+  windowBeats: isSmallScreen ? 4 : 8,
   keyCount: 23,
   tabsAsNumbers: true,
 })

@@ -88,4 +88,11 @@ const subStyle = computed(() => ({ color: props.palette.fgMute }))
   font-weight: 500;
   letter-spacing: 0;
 }
+
+@media (max-width: 720px) {
+  .trp { padding: 4px 6px 4px 10px; gap: 2px; }
+  .trp-label { display: none; }
+  .trp-val { min-width: 56px; font-size: 12px; }
+  .trp-sub { display: none; }
+}
 </style>

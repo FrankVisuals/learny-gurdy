@@ -97,18 +97,20 @@ function labelStyle(k) {
       </span>
     </div>
 
-    <div class="kb-stage" :style="{ width: totalW + 'px', height: totalH + 'px' }">
-      <div class="kb-base" :style="baseboardStyle" />
-      <div
-        v-for="(k, idx) in keys"
-        :key="k.i"
-        class="kb-key"
-        :style="keyWrapStyle(k, idx)"
-      >
-        <div class="kb-key-track" :style="keyTrackStyle()" />
-        <div class="kb-key-peg" :style="keyPegStyle(k)">
-          <div class="kb-key-tab" :style="tabNumberStyle(k)">{{ tabMap[k.i] }}</div>
-          <div v-if="showTabNumbers" class="kb-key-label" :style="labelStyle(k)">{{ tabNumberMap[k.i] }}</div>
+    <div class="kb-scroll">
+      <div class="kb-stage" :style="{ width: totalW + 'px', height: totalH + 'px' }">
+        <div class="kb-base" :style="baseboardStyle" />
+        <div
+          v-for="(k, idx) in keys"
+          :key="k.i"
+          class="kb-key"
+          :style="keyWrapStyle(k, idx)"
+        >
+          <div class="kb-key-track" :style="keyTrackStyle()" />
+          <div class="kb-key-peg" :style="keyPegStyle(k)">
+            <div class="kb-key-tab" :style="tabNumberStyle(k)">{{ tabMap[k.i] }}</div>
+            <div v-if="showTabNumbers" class="kb-key-label" :style="labelStyle(k)">{{ tabNumberMap[k.i] }}</div>
+          </div>
         </div>
       </div>
     </div>
@@ -144,6 +146,11 @@ function labelStyle(k) {
   width: 8px;
   height: 8px;
   border-radius: 2px;
+}
+.kb-scroll {
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
 }
 .kb-stage {
   position: relative;
@@ -187,5 +194,16 @@ function labelStyle(k) {
   font-size: 9px;
   letter-spacing: 0.04em;
   margin-top: 2px;
+}
+
+@media (max-width: 720px) {
+  .kb { padding: 12px 12px 8px; }
+  .kb-head {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+  .kb-legend { flex-wrap: wrap; gap: 10px; }
+  .kb-stage { margin: 0; }
 }
 </style>

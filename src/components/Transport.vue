@@ -280,4 +280,25 @@ function chipStyle(active) {
   font-family: inherit;
   transition: all 120ms ease-out;
 }
+
+@media (max-width: 720px) {
+  .tr {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 12px;
+    gap: 12px;
+  }
+  .tr-controls {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .tr-tempo {
+    flex: 1 1 100%;
+    min-width: 0;
+  }
+  .tr-chip { flex: 1 1 calc(50% - 5px); text-align: center; }
+  .tr-loop-handle { width: 14px; }
+  .tr-loop-handle-l { left: -7px; }
+  .tr-loop-handle-r { right: -7px; }
+}
 </style>

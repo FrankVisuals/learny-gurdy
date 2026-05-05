@@ -1,0 +1,17 @@
+html, body {
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background: #F4EFE6;
+  color: #1A1A1A;
+}
+* { box-sizing: border-box; }
+button:hover { filter: brightness(1.08); }
+input[type="range"] { height: 4px; }
+::selection { background: rgba(91, 139, 255, 0.35); }
+
+#app {
+  min-height: 100vh;
+}
